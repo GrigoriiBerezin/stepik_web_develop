@@ -10,3 +10,5 @@ sudo service gunicorn restart
 
 #To config MySQL
 sudo service mysql restart
+sudo mysql -u root -e "CREATE DATABASE django_app"
+sudo mysql -u root -e "CREATE USER 'django_root@localhost' IDENTIFIED BY 'GrishaBerezin1998'"
