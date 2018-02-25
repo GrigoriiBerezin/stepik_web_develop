@@ -5,6 +5,13 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
+class QuestionManager(models.Manager):
+    def new(self):
+        return self.on_order('-added_at')
+    def population(self):
+        return self.on_order('-rating')
+
+
 class Question(models.Model):
     title = models.CharField(max_length=255)
     text = models.TextField()
@@ -17,17 +24,10 @@ class Question(models.Model):
     object = QuestionManager()
 
 
-class QuestionManager(models.Manager):
-    def new(self):
-        return self.on_order('-added_at')
-    def population(self):
-        return self.on_order('-rating')
-
-
 class Answer(models.Model):
     text = models.TextField()
     added_at = models.DateTimeField(auto_now_add=True)
     author = models.CharField(max_length=50)
     
     question = models.ForeignKey(Question, 
-             on_delete=models.SET_NULL)
+             null=True, on_delete=models.SET_NULL)
