@@ -5,6 +5,6 @@ def application(environ, start_response):
     ]
 
 
-    body = bytes('\r\n'.join(environ['QUERY_STRING'].split('&')))
+    body = bytes('\r\n'.join(environ['QUERY_STRING'].split('&')), encoding='utf8')
     start_response(status, response_headers)
     return [body]
