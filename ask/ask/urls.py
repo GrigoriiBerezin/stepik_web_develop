@@ -13,20 +13,23 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
+from django.urls import re_path, include
 from django.contrib import admin
+from django.conf import settings
 
-from django.http import HttpResponse
+from . import views
 
 urlpatterns = [
-    url(r'^$', lambda request: HttpResponse('OK\n')),
+    re_path(r'^$', views.index, name='index'),
+    re_path(r'^admin/', admin.site.urls),
 
-    url(r'^question/', include('qa.urls')),
-    #url(r'^login/', include('qa.urls')),
-    #url(r'^signup/', include('qa.urls')),
-    #url(r'^ask/', include('qa.urls')),
-    #url(r'^popular/', include('qa.urls')),
-    #url(r'^new/', include('qa.urls')),
-
-    url(r'^admin/', admin.site.urls)
+    re_path(r'^question/', include('qa.urls')),
+    #re_path(r'^login/', include('qa.urls')),
+    #re_path(r'^signup/', include('qa.urls')),
+    #re_path(r'^ask/', include('qa.urls')),
+    #re_path(r'^popular/', include('qa.urls')),
+    #re_path(r'^new/', include('qa.urls')),
 ]
+
+#if settings.DEBUG:
+#    urlpatterns += patterns(

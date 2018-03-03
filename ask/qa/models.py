@@ -24,6 +24,9 @@ class Question(models.Model):
          related_name='likes_set')    
     object = QuestionManager()
 
+    def __str__(self):
+        return self.title
+
 
 class Answer(models.Model):
     text = models.TextField()
@@ -33,3 +36,7 @@ class Answer(models.Model):
 	   null=True, on_delete=models.SET_NULL)
     question = models.ForeignKey(Question, 
              null=True, on_delete=models.SET_NULL)
+
+    def __str__(self):
+        return f('{self.question.title!r} by {self.author!r}')
+ 
