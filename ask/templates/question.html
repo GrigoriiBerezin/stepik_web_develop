@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    <title>{{ question }}</title>
+  </head>
+  <body>
+    <h1>{{ question }}</h1>
+    <div>{{ question.text }}, {{ question.author }}</div>
+    <hr>
+    <ul>
+      {% answer for question.answer_set.all %}
+        <li>{{ answer }}, {{answer.author_id }}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

@@ -18,5 +18,4 @@ from qa.views import test
 
 urlpatterns = [
     re_path('^<int:num>/', test, name='test'),
-    #url(r'^popular/',...),
 ]
