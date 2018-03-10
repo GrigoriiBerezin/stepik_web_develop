@@ -9,7 +9,7 @@
     <ul>
       {% for question in page %}
       <li>
-        <a href="/question/{{ question.id }}">{{ question }}, {{ question.author }}</a>
+        <a href="{{ question.get_url }}">{{ question }}, {{ question.author }}</a>
       </li>
     </ul>
   </body>

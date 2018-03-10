@@ -43,6 +43,9 @@ class Question(models.Model):
                                    related_name='likes_set')
     objects = QuestionManager()
 
+    def get_url(self):
+        return "/question/{}/".format(self.id)
+
     def __str__(self):
         return self.title
 
