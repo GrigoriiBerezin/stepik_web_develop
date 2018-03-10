@@ -8,7 +8,7 @@ from .models import Question
 
 
 # Create your views here.
-def test(request, num):
+def question_page(request, num):
     try:
         question = Question.objects.get(id=num)
     except ObjectDoesNotExist:

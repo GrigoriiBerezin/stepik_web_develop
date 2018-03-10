@@ -7,10 +7,11 @@
   <body>
     <h1>Questions list</h1>
     <ul>
-      {% for question in page %}
+      {% for question in page.object_list %}
       <li>
         <a href="{{ question.get_url }}">{{ question }}, {{ question.author }}</a>
       </li>
+      {% endfor %}
     </ul>
   </body>
 </html>

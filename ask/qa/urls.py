@@ -13,9 +13,9 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.urls import re_path
-from qa.views import test
+from django.urls import path
+from qa.views import question_page
 
 urlpatterns = [
-    re_path('^<int:num>/', test, name='test'),
+    path('<int:num>/', question_page, name='question'),
 ]
