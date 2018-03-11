@@ -10,7 +10,7 @@
     <hr>
     <ul>
       {% for answer in question.answer_set.all %}
-        <li>{{ answer }}, {{answer.author_id }}</li>
+        <li>{{ answer }} -> {{ answer.author.username }}</li>
       {% endfor %}
     </ul>
   </body>
