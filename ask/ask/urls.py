@@ -16,6 +16,7 @@ Including another URLconf
 from django.urls import re_path, include
 from django.contrib import admin
 from qa.views import index, popular
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     re_path(r'^$', index, name='index'),
@@ -28,3 +29,5 @@ urlpatterns = [
     #re_path(r'^ask/', include('qa.urls')),
     #re_path(r'^new/', include('qa.urls')),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
