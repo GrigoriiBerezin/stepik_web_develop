@@ -19,16 +19,16 @@ def question_page(request, num):
 
 
 def index(request):
-    qs = Question.objects.all()
+    qs = Question.objects.new()
     page = paginate(request, qs)
-    return render(request, 'index.html',
+    return render(request, 'list.html',
                   {'page': page})
 
 
 def popular(request):
     qs = Question.objects.popular()
     page = paginate(request, qs)
-    return render(request, 'index.html',
+    return render(request, 'list.html',
                   {'page': page})
 
 

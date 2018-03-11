@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 class QuestionManager(models.Manager):
     def new(self):
-        return self.order_by('-added_at')
+        return self.order_by('-id')
 
     def popular(self):
         return self.order_by('-rating')
@@ -62,6 +62,5 @@ class Answer(models.Model):
                                  on_delete=models.SET_NULL)
 
     def __str__(self):
-        return '{} by {}'.format(self.question.title,
-                                 self.author)
+        return self.text
  
