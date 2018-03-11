@@ -25,6 +25,13 @@ def index(request):
                   {'page': page})
 
 
+def popular(request):
+    qs = Question.objects.popular()
+    page = paginate(request, qs)
+    return render(request, 'index.html',
+                  {'page': page})
+
+
 def paginate(request, qs):
     try:
         limit = int(request.GET.get('limit', 10))
