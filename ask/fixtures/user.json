@@ -1,0 +1,11 @@
+[
+  {
+    "model": "qa.user",
+    "pk": 1,
+    "fields": {
+      "username": "grisha.berezin.1998@mail.ru",
+      "first_name": "Grigory",
+      "last_name": "Berezin"
+    }
+  }
+]
